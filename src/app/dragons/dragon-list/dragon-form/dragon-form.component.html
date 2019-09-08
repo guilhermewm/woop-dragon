@@ -1,0 +1,51 @@
+<div class="modal-header">
+    <h4 class="modal-title">New Dragon</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="registerForm" class="form mt-4" (submit)="createDragon()">
+        <div class="form-group">
+            <input #dragonNameInput
+                formControlName="dragonName" 
+                class="form-control" 
+                placeholder="Dragon name" 
+                autofocus>
+            <ws-vmessage 
+                *ngIf="registerForm.get('dragonName').errors?.required"
+                text="Dragon name is required!">
+            </ws-vmessage>        
+        </div>
+
+        <div class="form-group">
+            <input
+                formControlName="dragonType" 
+                class="form-control" 
+                placeholder="Dragon type" 
+                autofocus>
+            <ws-vmessage 
+                *ngIf="registerForm.get('dragonType').errors?.required"
+                text="Dragon type is required!">
+            </ws-vmessage>        
+        </div>
+
+        <div class="form-group">
+            <input
+                formControlName="dragonHistory" 
+                class="form-control" 
+                placeholder="Dragon history" 
+                autofocus>    
+        </div>
+
+        <button 
+            [disabled]="registerForm.invalid" 
+            type="submit" 
+            class="btn btn-primary btn-block">
+            Create dragon
+        </button>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()">Close</button>
+</div>

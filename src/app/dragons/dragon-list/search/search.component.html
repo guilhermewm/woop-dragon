@@ -1,0 +1,13 @@
+<div class="text-center mb-4">
+    <form>
+        <i aria-hidden="true" class="fa fa-search mr-1"></i>
+        <input style="width: 18em;"
+            class="form-control mx-auto"
+            type="search" 
+            placeholder="Search dragon´s name..." 
+            autofocus
+            (keyup)="debounce.next($event.target.value)"
+            [value]="value"
+            >
+    </form>
+</div>

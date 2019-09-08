@@ -1,0 +1,11 @@
+<p class="text-center text-muted mt-4" *ngIf="!dragons.length"> 
+    Sorry, no dragons
+</p>
+
+<ol class="list-unstyled">
+    <li *ngFor="let cols of rows" class="row no-gutters p-0" style="margin-top: 20px;">
+        <div *ngFor="let dragon of cols" class="col-3" style="min-width: 238px; padding: 5px; margin: 0 auto;" apDarkenOnHover>           
+            <ws-dragon [dragon]="dragon"></ws-dragon>
+        </div>
+    </li>
+</ol>

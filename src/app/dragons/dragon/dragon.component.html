@@ -1,0 +1,11 @@
+<div class="card img-thumbnail mx-auto text-center" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{ dragon.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ dragon.type }}</h6>
+        <p class="card-text">{{ dragon.history }}</p>
+        <nav>
+            <a href="/dragons/{{dragon.id}}" class="card-link btn btn-outline-primary">Details</a>
+            <button (click)="deleteDragon(dragon.id)" type="button" class="btn btn-outline-danger card-link m-1">Delete</button>
+        </nav>        
+    </div>
+</div>

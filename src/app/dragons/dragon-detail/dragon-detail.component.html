@@ -1,0 +1,68 @@
+<nav class="navbar navbar-dark bg-dark">
+    <a href="/" class="navbar-brand">Home</a>
+</nav>
+<ws-alerts 
+    [text]="alertText" [type]="alertType" [visible]="alertVisible">
+</ws-alerts>
+<div class="container p-3" *ngIf="dragon">
+    <div class="card" *ngIf="!edit">
+        <div class="card-body">
+            <h5 class="card-title">{{ dragon.name }}</h5>
+            <p class="card-text">Type: {{ dragon.type }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Created at: {{ dragon.createdAt | date:'dd/MM/yyyy HH:mm:ss'  }}</li>
+        </ul>
+        <div class="card-body">
+            <button type="button" (click)="canEdit(true);" class="btn btn-primary">Edit</button>
+        </div>
+    </div>
+
+    <div class="card" *ngIf="edit">
+        <form [formGroup]="dragonForm" class="form mt-4" (submit)="editDragon()">
+            <div class="card-body">
+                <h5 class="card-title">                    
+                    <label for="NameInput">Name</label>
+                    <input #dragonName
+                        formControlName="dragonName" 
+                        class="form-control" 
+                        placeholder="{{ dragon.name }}" 
+                        autofocus>
+                    <ws-vmessage 
+                        *ngIf="dragonForm.get('dragonName').errors?.required"
+                        text="Dragon name is required!">
+                    </ws-vmessage>
+                </h5>
+                <p class="card-text">                    
+                    <label for="TypeInput">Type</label>
+                    <input
+                        formControlName="dragonType" 
+                        type="text" 
+                        class="form-control" 
+                        placeholder="{{ dragon.type }}">
+                    <ws-vmessage
+                        *ngIf="dragonForm.get('dragonType').errors?.required"
+                        text="Dragon type is required!">
+                    </ws-vmessage>                   
+                </p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Created at: {{ dragon.createdAt | date:'dd/MM/yyyy HH:mm:ss'  }}</li>
+            </ul>
+            <div class="card-body">
+                <button 
+                    [disabled]="dragonForm.invalid" 
+                    type="submit" 
+                    class="btn btn-primary m-1">
+                    Save
+                </button>
+                <button 
+                    type="button" 
+                    (click)="canEdit(false);" 
+                    class="btn btn-primary m-1">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>      
+</div>
