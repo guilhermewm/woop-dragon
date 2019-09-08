@@ -1,12 +1,12 @@
 <nav class="navbar navbar-dark bg-dark">
-        <a href="/" class="navbar-brand">Home</a>
-        <ws-search 
-            (onTyping)="filter = $event" [value]="filter">
-        </ws-search>
-        <div>            
-            <button type="button" class="btn btn-outline-light" (click)="openRegister()">New Dragon</button>
-            <button type="button" class="btn btn-outline-light ml-3" (click)="logOut()">Log Out</button> 
-        </div>
+    <a href="/" class="navbar-brand">Home</a>
+    <ws-search 
+        (onTyping)="filter = $event" [value]="filter">
+    </ws-search>
+    <div>            
+        <button type="button" class="btn btn-outline-light" (click)="openRegister()">New Dragon</button>
+        <button type="button" class="btn btn-outline-light ml-3" (click)="logOut()">Log Out</button> 
+    </div>
 </nav>
 
 <ws-alerts 

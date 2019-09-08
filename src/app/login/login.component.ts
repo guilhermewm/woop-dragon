@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
         });  
     } 
 
-    login() {
+    login(): boolean {
         const userName = this.loginForm.get('userName').value;
         const password = this.loginForm.get('password').value;
 
@@ -39,9 +39,9 @@ export class LoginComponent implements OnInit {
         const res = this.authService.authenticate(newUser);
         if(res) {            
             this.router.navigate(['dragons'])
+            return true;
         }
-        console.log(newUser)
-        console.log(res)
+        return false;
     }
 
 }

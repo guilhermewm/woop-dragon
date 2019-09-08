@@ -13,7 +13,6 @@ export class AuthGuardService implements CanActivate {
         private userService: UserService,
         private router: Router
     ) { }
-    private isAuthenticated: boolean = false;
 
     canActivate() {
         if(!this.userService.isLogged()){
