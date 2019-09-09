@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterModule } from '@angular/router';
 import { User } from '../user/user';
+import { AlertsModule } from '../shared/components/alerts/alerts.module';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -21,6 +22,7 @@ describe('LoginComponent', () => {
         HttpClientModule,
         HttpClientTestingModule,
         VMessageModule,
+        AlertsModule,
         RouterModule.forRoot([])
       ]
     })

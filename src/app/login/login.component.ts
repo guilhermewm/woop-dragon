@@ -11,6 +11,10 @@ import { User } from '../user/user';
 })
 export class LoginComponent implements OnInit {
 
+    alertVisible: boolean = false;
+    alertText: string = "";
+    alertType: string = "";
+    
     loginForm: FormGroup;
     
     constructor(
@@ -41,7 +45,16 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['dragons'])
             return true;
         }
+        this.showAlert(true, `Error, invalid user or password`, "danger")
+        setTimeout(()=>{
+            this.showAlert(false);
+        }, 5000);
         return false;
     }
 
+    showAlert(visible: boolean, text: string = '', type: string = '') {
+        this.alertVisible = visible;
+        this.alertText = text;
+        this.alertType = type;    
+    }
 }

@@ -9,6 +9,7 @@ import { DragonsModule } from './dragons/dragons.module';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { UserService } from './user/user.service';
 import { LoginModule } from './login/login.module';
+import { DragonsComponent } from './dragons/dragon-list/dragons/dragons.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +21,7 @@ import { LoginModule } from './login/login.module';
     LoginModule,
     AppRoutingModule,
     ErrorsModule,
-    NgbModule,
-    
+    NgbModule,    
   ],
   providers: [
     AuthGuardService,

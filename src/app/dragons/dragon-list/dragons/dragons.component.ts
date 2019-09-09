@@ -12,9 +12,6 @@ export class DragonsComponent implements OnChanges {
   @Input() dragons: Dragon[] = [];
   rows: any[] = [];
 
-  key: string = 'name'; //set default
-  reverse: boolean = false;
-
   numberItens: number = 4;
 
   constructor() { }
@@ -25,13 +22,11 @@ export class DragonsComponent implements OnChanges {
   }
 
   groupColumns(dragons: Dragon[], numberItens: number) {
-    console.log(dragons)
     const newRows = [];
 
     for(let index = 0; index < dragons.length; index+=numberItens) {
       newRows.push(dragons.slice(index, index + numberItens));
-    }               
-    console.log(newRows)             
+    }                         
     return newRows;
   }
 }
